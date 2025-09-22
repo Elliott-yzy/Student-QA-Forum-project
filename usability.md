@@ -1,0 +1,1 @@
+After logging in, click on the avatar in the top-left corner to view the profile of the currently logged-in user.

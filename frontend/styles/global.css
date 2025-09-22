@@ -1,0 +1,581 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial;
+    font-size: 1vw;
+    overflow: hidden;
+    background-image: url('../background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.custom-container {
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.custom-container h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.custom-button {
+    width: 70%;
+    display: block;
+    margin: 4rem auto 3rem;
+}
+
+.error-popup {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 900;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    padding: 4rem 1.2rem 2rem 1.2rem;
+    z-index: 1000;
+    max-width: 400px;
+    max-height: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+.close-button {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 3rem auto 0rem;
+    display: block;
+}
+
+.close-icon {
+    position: absolute;
+    color: black;
+    top: 0rem;
+    right: 0.3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dashboard-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+}
+
+.left-section {
+    width: 30rem;
+    max-width: 400px;
+    height: 100vh;
+    border-right: 0.1rem solid #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.header-container {
+    position: sticky;
+    top: 0;
+    background-color: rgb(227, 234, 247);
+    z-index: 10;
+    border-bottom: 0.1rem solid #f5f5f5;
+}
+
+.two-button {
+    height: 4rem;
+    border-bottom: 0.1rem solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    background-color: rgb(146, 173, 224)
+}
+
+.profile-link-container {
+    height: 4rem;
+    border-bottom: 0.1rem solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    padding: 2rem 1rem;
+    background-color: rgb(146, 173, 224)
+}
+
+#userprofile-pic {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.left-section h1 {
+    font-size: 1.5rem;
+    color: #f55724;
+    font-weight: bold;
+    padding-top: 0.5rem;
+    text-align: center;
+}
+
+.right-section {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+#none-form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    overflow: hidden;
+}
+
+#none-form img {
+    width: 8rem;
+    height: 8rem;
+}
+
+#none-form p {
+    font-size: 3rem;
+    font-weight: 500;
+    color: #333333;
+}
+
+#new-topic,
+#edit-thread {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    flex-direction: column;
+}
+
+#thread-details,
+#edit-thread {
+    display: none;
+}
+
+.button-topic {
+    height: 4rem;
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: 0.1rem solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+#button-edit {
+    height: 4rem;
+    border-bottom: 0.1rem solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgb(146, 173, 224);
+}
+
+
+.button-topic span {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.post-part,
+.edit-part {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 2rem 0 2rem;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#thread-details,
+#edit-details,
+#profile-screen {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#thread-title1,
+#thread-title2 {
+    margin-left: 1rem;
+    margin-top: 2rem;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.icons-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#comment-container1,
+#comment-container2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    overflow-y: auto;
+}
+
+.comment-likecontent {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    align-items: flex-start;
+}
+
+.comment-likecontent p {
+    flex: 1;
+    font-weight: 500;
+    font-size: 1.5rem;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.make-comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-textarea {
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    margin: 3rem auto 0;
+    width: 80%;
+    height: 6rem;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+
+.newcomment-button {
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.newcomment-post-button,
+.newcomment-cancel-button {
+    width: 8rem;
+    font-size: 1rem;
+    border: 1px solid black;
+    margin-bottom: 3rem;
+    border-radius: 0.3rem;
+}
+
+#thread-content1,
+#thread-content2 {
+    margin-left: 7rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+#thread-likes1,
+#thread-likes2 {
+    margin-left: 1.8rem;
+    margin-top: 0.7rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+#like-icon1,
+#like-icon2 {
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+    margin-left: 2rem;
+}
+
+.comment-like-icon {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+    margin-left: 3rem;
+}
+
+.comment-likes {
+    margin-left: 2.6rem;
+    font-weight: 700;
+    margin-right: 2rem;
+}
+
+#eye-icon1,
+#eye-icon2 {
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+    margin-left: 2rem;
+}
+
+
+.profile-pic,
+#thread-creator-pic1,
+#thread-creator-pic2,
+#profilescreen-pic {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+#current-profile-image {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+#post-content {
+    height: 200px;
+    width: 100%;
+}
+
+#create-topic,
+#logout-button {
+    font-size: 0.7rem;
+    width: 48%;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: black;
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#thread-edit,
+#thread-delete {
+    font-size: 1rem;
+    width: 10%;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: black;
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#post-cancel,
+#post-submit {
+    font-size: 1.5rem;
+    font-weight: 200;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    color: #046bc8;
+    border: none;
+}
+
+.editcomment-container {
+    margin-left: 2rem;
+}
+
+.editcomment-button,
+.deletecomment-button,
+.reply-button {
+    background: none;
+    border: none;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #007bff;
+}
+
+.thread-box {
+    background-color: rgba(255, 255, 255, 0);
+    max-height: 100px;
+    cursor: pointer;
+    border-bottom: 0.05rem solid white;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.thread-box h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.thread-under {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.thread-under .creator,
+.thread-under .time,
+.thread-under .likes {
+    font-size: 0.7rem;
+    color: #555;
+}
+
+.reply-modal,
+.edit-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #f5f5f5;
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 1rem;
+    width: 400px;
+    max-width: 90%;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: none;
+}
+
+.reply-textarea,
+.edit-textarea {
+    width: 100%;
+    height: 80px;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+    outline: none;
+}
+
+.modal-buttons {
+    margin: 0.5rem auto;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.modal-comment-button,
+.modal-cancel-button,
+.modal-update-button,
+.modal-cancel-button {
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #000;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#thread-poster1,
+#thread-poster2,
+.profile-container,
+.pict-name {
+    display: flex;
+    align-items: center;
+    gap: 0rem;
+}
+
+#thread-creator-name1,
+#thread-creator-name2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #e86b44;
+    padding-top: 3rem;
+}
+
+#profilescreen-name {
+    font-size: 2rem;
+    font-weight: 400;
+    color: black;
+    padding-top: 3rem;
+}
+
+#profilescreen-email,
+#profilescreen-admin {
+    font-size: 2rem;
+    font-weight: 400;
+    color: black;
+    padding-top: 1rem;
+    margin-left: 2rem;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #e86b44;
+    padding-top: 3rem;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 0.2rem solid #ccc;
+    margin: 0 1rem;
+}
+
+
+.divider span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #666;
+}
+
+.user-thread {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    border-radius: 8px;
+}

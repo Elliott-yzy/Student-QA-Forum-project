@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LurkForWork</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/global.css" />
+</head>
+
+<body class="d-flex justify-content-center align-items-center vh-100">
+  <div class="container custom-container">
+    <!-- Login Page -->
+    <div id="login-form">
+      <h1 class="text-center">Login</h1>
+      <form onsubmit="make_login(event)">
+        <div class="form-group">
+          <label for="login-email">Email:</label>
+          <input type="email" class="form-control" id="login-email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password:</label>
+          <input type="password" class="form-control" id="login-password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary custom-button">login</button>
+      </form>
+      <div class="text-center">
+        <p>Don't have an account? <button class="btn btn-link p-0 ml-2" style="text-decoration: underline;"
+            onclick="goto_register()">Create account</button></p>
+      </div>
+    </div>
+
+    <!-- Register Page -->
+    <div id="register-form">
+      <h1 class="text-center">Registration</h1>
+      <form onsubmit="make_register(event)">
+        <div class="form-group">
+          <label for="register-email"> Your email:</label>
+          <input type="email" class="form-control" id="register-email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="register-name">Your name:</label>
+          <input type="text" class="form-control" id="register-name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="register-password">New password:</label>
+          <input type="password" class="form-control" id="register-password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm password:</label>
+          <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary custom-button">register</button>
+      </form>
+      <div class="text-center">
+        <p>Already have an account? <button class="btn btn-link p-0 ml-2" style="text-decoration: underline;"
+            onclick="goto_login()">Back to login</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-container">
+    <!-- Dashboard Left Sidebar Navigation -->
+    <div class="left-section">
+      <div class="header-container">
+        <!-- Clickable Avatar to Redirect to User's Profile Page -->
+        <div class="profile-link-container">
+          <img id="userprofile-pic" src="https://www.w3schools.com/howto/img_avatar.png" alt="Default Avatar">
+        </div>
+        <!-- Create New Post and Logout Buttons -->
+        <div class="two-button">
+          <button id="create-topic">Create new topic</button>
+          <button id="logout-button">Logout</button>
+        </div>
+        <h1>All threads</h1>
+      </div>
+      <!-- Post Lists-->
+      <div class="threads-list">
+        <button id="load-more" class="btn btn-primary">More</button>
+      </div>
+    </div>
+    <div class="right-section">
+      <!-- Initial page after login -->
+      <div id="none-form">
+        <img src="assets/icon1.svg" alt="icon1">
+        <p>Please choose a topic</p>
+      </div>
+
+      <!-- Create New Post Section -->
+      <div id="new-topic">
+        <div class="button-topic">
+          <button id="post-cancel">Cancel</button>
+          <span>New Question</span>
+          <button id="post-submit">Post</button>
+        </div>
+
+        <div class="post-part">
+          <form id="create-thread-form">
+            <div class="form-group">
+              <label for="post-title">Title:</label>
+              <input type="text" class="form-control" id="post-title" name="title" required>
+            </div>
+            <div class="form-group">
+              <label for="post-content">Content:</label>
+              <textarea class="form-control" id="post-content" name="content" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="post-public">Private:</label>
+              <input type="checkbox" id="post-public" name="whether-private">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Post Detail Page for Non-Current User -->
+      <div id="thread-details">
+        <h2 id="thread-title2"></h2>
+        <div id="thread-poster2">
+          <img id="thread-creator-pic2">
+          <p id="thread-creator-name2"></p>
+        </div>
+        <div class="icons-container">
+          <img id="like-icon2" src="assets/like1.svg" alt="like-icon">
+          <img id="eye-icon2" src="assets/eye1.svg" alt="eye-icon">
+        </div>
+        <p id="thread-likes2"></p>
+        <p id="thread-content2"></p>
+        <div class="divider">
+          <span>Comments</span>
+        </div>
+        <div id="comment-container2"></div>
+        <div id="newcomment-container2"></div>
+      </div>
+
+      <!-- Post Detail Page for Current User -->
+      <div id="edit-thread">
+        <div class="button-edit" id="button-edit">
+          <button id="thread-edit">Edit</button>
+          <button id="thread-delete">Delete</button>
+        </div>
+
+        <!-- Post Details -->
+        <div id="edit-details">
+          <h2 id="thread-title1"></h2>
+          <div id="thread-poster1">
+            <img id="thread-creator-pic1">
+            <p id="thread-creator-name1"></p>
+          </div>
+          <div class="icons-container">
+            <img id="like-icon1" src="assets/like1.svg" alt="like-icon">
+            <img id="eye-icon1" src="assets/eye1.svg" alt="eye-icon">
+          </div>
+          <p id="thread-likes1"></p>
+          <p id="thread-content1"></p>
+          <div class="divider">
+            <span>Comments</span>
+          </div>
+          <div id="comment-container1"></div>
+          <div id="newcomment-container1"></div>
+        </div>
+
+        <!-- Post Edit Form -->
+        <div class="edit-part" id="edit-part">
+          <form id="edit-thread-form">
+            <div class="form-group">
+              <label for="edit-title">Title:</label>
+              <input type="text" class="form-control" id="edit-title" name="title" required>
+            </div>
+            <div class="form-group">
+              <label for="edit-content">Content:</label>
+              <textarea class="form-control" id="edit-content" name="content" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="edit-public">Private:</label>
+              <input type="checkbox" id="edit-public" name="whether-private">
+            </div>
+            <div class="form-group">
+              <label for="edit-lock">Locked:</label>
+              <input type="checkbox" id="edit-lock" name="whether-locked">
+            </div>
+            <button id="thread-save">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Profile Page -->
+      <div id="profile-screen">
+        <div class="pict-name">
+          <img id="profilescreen-pic" alt="User's Profile Picture">
+          <h2 id="profilescreen-name"></h2>
+        </div>
+        <p id="profilescreen-email"></p>
+        <p id="profilescreen-admin"></p>
+        <button id="edit-profile-button" style="display: none;">Edit Profile</button>
+        <div class="divider">
+          <span>User's Threads</span>
+        </div>
+        <div id="user-threads"></div>
+      </div>
+
+      <!-- Update Profile Page -->
+      <div id="update-profile-modal" style="display: none;">
+        <form id="update-profile-form">
+          <label for="update-email">Email:</label>
+          <input type="email" id="update-email" required><br><br>
+
+          <label for="update-name">Name:</label>
+          <input type="text" id="update-name" required><br><br>
+
+          <label for="update-password">Password:</label>
+          <input type="text" id="update-password"><br><br>
+
+          <label for="update-image">Current Profile Image:</label>
+          <img id="current-profile-image" src="#" alt="Current Profile" width="100"><br><br>
+
+          <label for="update-image">Select New Profile Image:</label>
+          <input type="file" id="update-image" accept="image/*"><br><br>
+
+          <div id="role-section" style="display: none;">
+            <label for="user-role">User Role:</label>
+            <select id="user-role">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select><br><br>
+
+            <button type="button" id="update-role">Update Role</button><br><br>
+          </div>
+
+          <button type="submit" id="profile-update">Update</button>
+          <button type="button" id="cancel-update">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="error-popup"></div>
+  <script type="module" src="src/main.js"></script>
+</body>
+
+</html>
